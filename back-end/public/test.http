@@ -1,0 +1,41 @@
+### MOVIL
+
+GET http://localhost:8888/index.php/movil?patente=GWI322 HTTP/1.1
+
+### 
+GET http://localhost:8888/index.php/movil?descripcion=5741 HTTP/1.1
+
+### 
+GET http://localhost:8888/index.php/movil?dependencia=05 HTTP/1.1
+
+
+### GRUPO
+
+GET http://localhost:8888/index.php/grupo HTTP/1.1
+
+###
+e
+DELETE http://localhost:8888/index.php/grupo/1 HTTP/1.1
+
+
+###
+
+POST http://localhost:8888/index.php/grupo HTTP/1.1
+Content-Type: application/json
+
+{
+    "grupNombre":"Camionetas",
+    "grupDescripcion":"Camionetas Toyota modelo 2016"
+}
+
+
+###
+
+PUT http://localhost:8888/index.php/grupo HTTP/1.1
+
+{
+    "grupId": 1,
+    "grupNombre": "Camionetas",
+    "grupDescripcion": "Camionetas Toyota modelo nuevo"
+  }
+
