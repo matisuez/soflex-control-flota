@@ -1,5 +1,5 @@
 <?php
-include_once "model/grupo.php";
+include_once "models/grupo.php";
 
 
 $app->get('/grupo', function ($request, $response, $args) {

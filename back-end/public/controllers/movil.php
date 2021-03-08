@@ -1,5 +1,5 @@
 <?php
-include_once "model/movil.php";
+include_once "models/movil.php";
 
 
 $app->get('/movil', function ($request, $response, $args) {
