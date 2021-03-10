@@ -25,12 +25,14 @@ import { MatListModule } from '@angular/material/list';
 import { ConfigService } from './core/config.service';
 import { HomeComponent } from './components/home/home.component';
 import { TareaComponent } from './components/tarea/tarea.component';
+import { ConfirmarComponent } from './shared/confirmar/confirmar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    TareaComponent
+    TareaComponent,
+    ConfirmarComponent
   ],
   imports: [
     BrowserModule,
