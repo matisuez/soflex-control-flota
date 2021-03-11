@@ -98,11 +98,9 @@ export class TareaComponent implements OnInit, AfterViewInit {
               }
             });
             this.actualizarTabla();
-          })
+          });
         }
-
-      }
-    );
+    });
 
   }
 

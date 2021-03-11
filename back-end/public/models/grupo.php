@@ -25,6 +25,18 @@ class Grupo
         return $results;
     }
 
+    public function getId($db, $id) {
+        $sql = "SELECT $this->fields FROM $this->table
+                $this->join
+                WHERE grupId = ? AND grupBorrado = 0";
+        $stmt = SQL::query($db, $sql, [$id]);
+        $result = [];
+        while ( $row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+            $result[] = $row;
+        }
+        return $result;
+    }
+
     public function delete ($db, $id) {
         $stmt = SQL::query($db,
         "UPDATE $this->table SET grupBorrado = 1 - grupBorrado

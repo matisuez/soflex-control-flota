@@ -1,0 +1,35 @@
+
+<div style="width: 100%; height: 100%; padding: 20px;" class="mat-elevation-z8">
+    <mat-form-field id="filtro" appearance="legacy">
+        <mat-label>Filtrar</mat-label>
+        <input matInput (keyup)="filterGroup($event)" placeholder="..." #input>
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <button mat-raised-button id="agregar" style="float: right;" routerLink="/grupos/form/new" >Agregar nuevo</button>
+    <table mat-table [dataSource]="dataSource" matSort style="overflow-x:auto;width: 100%;">
+        <ng-container matColumnDef="grupNombre">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+            <td mat-cell *matCellDef="let grupo">{{ grupo.grupNombre }}</td>
+        </ng-container>
+        <ng-container matColumnDef="grupDescripcion">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Descripcion</th>
+            <td mat-cell *matCellDef="let grupo">{{ grupo.grupDescripcion }}</td>
+        </ng-container>
+        <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let grupo">
+                <button title="editar" mat-raised-button color="primary" style="margin-right: 10px;" routerLink="/grupos/form/{{grupo.grupId}}">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button title="borrar" mat-raised-button color="primary" (click)="deleteGroup(grupo)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnas"></tr>
+        <tr class="mat-row">
+            <td class="mat-cell" colspan="2">No hay datos para el filtro "{{input.value}}"</td>
+        </tr>
+    </table>
+</div>

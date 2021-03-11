@@ -26,13 +26,18 @@ import { ConfigService } from './core/config.service';
 import { HomeComponent } from './components/home/home.component';
 import { TareaComponent } from './components/tarea/tarea.component';
 import { ConfirmarComponent } from './shared/confirmar/confirmar.component';
+import { GrillaGruposComponent } from './components/grupos/grilla-grupos/grilla-grupos.component';
+import { FormGruposComponent } from './components/grupos/form-grupos/form-grupos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     TareaComponent,
-    ConfirmarComponent
+    ConfirmarComponent,
+    GrillaGruposComponent,
+    FormGruposComponent,
+    
   ],
   imports: [
     BrowserModule,

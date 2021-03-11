@@ -16,11 +16,13 @@ export class ConfigService {
   ) { }
 
   load() {
+    
     return this.http.get<Config>(this.configURL)
-              .toPromise()
-              .then( data => {
-                this.config = data;
-              });
+      .toPromise()
+      .then( data => {
+        this.config = data;
+      });
+      
   }
 
 }
