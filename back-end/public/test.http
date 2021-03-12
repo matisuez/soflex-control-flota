@@ -1,4 +1,6 @@
+### ---------------
 ### MOVIL
+### ---------------
 
 GET http://localhost:8888/index.php/movil?patente=GWI322 HTTP/1.1
 
@@ -9,19 +11,20 @@ GET http://localhost:8888/index.php/movil?descripcion=5741 HTTP/1.1
 GET http://localhost:8888/index.php/movil?dependencia=05 HTTP/1.1
 
 
+### ---------------
 ### GRUPO
+### ---------------
 
+### GET
 GET http://localhost:8888/index.php/grupo HTTP/1.1
 
-###
+### GET SINGLE
 GET http://localhost:8888/index.php/grupo/1 HTTP/1.1
 
-###
+### DELETE
 DELETE http://localhost:8888/index.php/grupo/1 HTTP/1.1
 
-
-###
-
+### POST
 POST http://localhost:8888/index.php/grupo HTTP/1.1
 Content-Type: application/json
 
@@ -30,7 +33,7 @@ Content-Type: application/json
     "grupDescripcion":"Camionetas Toyota modelo 2016"
 }
 
-###
+### PUT
 PUT http://localhost:8888/index.php/grupo HTTP/1.1
 
 {
@@ -39,7 +42,10 @@ PUT http://localhost:8888/index.php/grupo HTTP/1.1
     "grupDescripcion": "Camionetas Toyota modelo nuevo"
 }
 
+### ---------------
 ### Tarea
+### ---------------
+
 ### GET
 GET http://localhost:8888/index.php/tarea HTTP/1.1
 
@@ -70,7 +76,69 @@ PUT http://localhost:8888/index.php/tarea HTTP/1.1
 ### DELETE
 DELETE http://localhost:8888/index.php/tarea/6 HTTP/1.1
 
-### GrupoServicios
+
+### ---------------
+### Servicios
+### ---------------
 
 ### POST
-POST http://localhost:8888/index.php/grupo-servicio HTTP/1.1
+POST http://localhost:8888/index.php/servicio HTTP/1.1
+
+{
+    "servNombre": "Servicio de prueba",
+    "servDescripcion": "Descripcion de prueba",
+    "servPeriodo": 183,
+    "servKM": 15000,
+    "servFecha": 1
+}
+
+### PUT
+PUT http://localhost:8888/index.php/servicio HTTP/1.1
+
+{
+    "servId": 7,
+    "servNombre": "Servicio de prueba modificado",
+    "servDescripcion": "Descripcion de prueba modificada",
+    "servPeriodo": 184,
+    "servKM": 15050,
+    "servFecha": 0
+}
+
+### GET SINGLE
+GET http://localhost:8888/index.php/servicio/7 HTTP/1.1
+
+### GET
+GET http://localhost:8888/index.php/servicio HTTP/1.1
+
+### DELETE
+DELETE http://localhost:8888/index.php/servicio/7 HTTP/1.1
+
+### ---------------
+### ServicioTarea
+### ---------------
+
+### POST
+POST http://localhost:8888/index.php/servicio-tarea HTTP/1.1
+
+{
+    "setaServId": 1,
+    "setaTareId": 1,
+}
+
+### PUT
+PUT http://localhost:8888/index.php/servicio-tarea HTTP/1.1
+
+{
+    "setaId": 10,
+    "setaServId": 2,
+    "setaTareId": 3
+}
+
+### GET
+GET http://localhost:8888/index.php/servicio-tarea HTTP/1.1
+
+### GET SINGLE
+GET http://localhost:8888/index.php/servicio-tarea/10 HTTP/1.1
+
+### DELETE
+DELETE http://localhost:8888/index.php/servicio-tarea/10 HTTP/1.1

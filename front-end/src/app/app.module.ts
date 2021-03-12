@@ -30,6 +30,8 @@ import { GrillaGruposComponent } from './components/grupos/grilla-grupos/grilla-
 import { FormGruposComponent } from './components/grupos/form-grupos/form-grupos.component';
 import { GrillaServiciosComponent } from './components/servicios/grilla-servicios/grilla-servicios.component';
 import { FormServiciosComponent } from './components/servicios/form-servicios/form-servicios.component';
+import { GrillaServicioTareaComponent } from './components/servicio-tarea/grilla-servicio-tarea/grilla-servicio-tarea.component';
+import { FormServicioTareaComponent } from './components/servicio-tarea/form-servicio-tarea/form-servicio-tarea.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { FormServiciosComponent } from './components/servicios/form-servicios/fo
     FormGruposComponent,
     GrillaServiciosComponent,
     FormServiciosComponent,
+    GrillaServicioTareaComponent,
+    FormServicioTareaComponent,
     
   ],
   imports: [
