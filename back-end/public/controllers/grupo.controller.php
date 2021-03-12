@@ -1,6 +1,6 @@
 <?php
 
-    include_once "models/grupo.php";
+    include_once "models/grupo.model.php";
 
     $app->get('/grupo', function ($request, $response, $args) {
         //$token = G::Autenticar($request, "ADMIN_VER");

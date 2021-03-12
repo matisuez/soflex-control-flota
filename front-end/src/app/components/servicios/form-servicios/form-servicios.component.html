@@ -1,0 +1,46 @@
+<div style="width: 100%; height: 100%; padding: 20px;" class="mat-elevation-z8" *ngIf="isLoaded">
+    <h1>{{label}}</h1>
+    <form [formGroup]="form">
+        <div>
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput formControlName="servNombre" required>
+                    <mat-error>El campo es obligatorio.</mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Descripcion</mat-label>
+                    <input matInput formControlName="servDescripcion" required>
+                    <mat-error>El campo es obligatorio.</mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Periodo</mat-label>
+                    <input matInput formControlName="servPeriodo" required>
+                    <mat-error>El campo es obligatorio.</mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>KMs</mat-label>
+                    <input matInput formControlName="servKM" required>
+                    <mat-error>El campo es obligatorio.</mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Fecha</mat-label>
+                    <input matInput formControlName="servFecha" required>
+                    <mat-error>El campo es obligatorio.</mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <button type="button" [disabled]="form.invalid" (click)="save()" mat-raised-button color="primary">Guardar</button>
+                <button type="button" mat-raised-button routerLink="/servicios">Cancelar</button>
+            </div>
+        </div>
+    </form>
+</div>

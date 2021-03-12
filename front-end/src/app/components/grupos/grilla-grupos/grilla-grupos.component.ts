@@ -16,7 +16,6 @@ import { ConfirmarComponent } from 'src/app/shared/confirmar/confirmar.component
 export class GrillaGruposComponent implements OnInit, AfterViewInit {
 
   grupos: Grupo[] = [];
-
   columnas: string[] = ['grupNombre', 'grupDescripcion', 'acciones'];
   dataSource = new MatTableDataSource<Grupo>();
 
@@ -51,20 +50,15 @@ export class GrillaGruposComponent implements OnInit, AfterViewInit {
   }
 
   deleteGroup(row: Grupo) {
-
     const dialogRef = this.dialog.open(ConfirmarComponent);
-
     dialogRef.afterClosed().subscribe( result => {
-
       if(result) {
         this.grupoService.delete(row.grupId).subscribe( () => {
           this.grupos = this.grupos.filter( g => g.grupId !== row.grupId);
           this.refreshTable();
         });
       }
-
     });
-
   }
 
 

@@ -14,6 +14,9 @@ GET http://localhost:8888/index.php/movil?dependencia=05 HTTP/1.1
 GET http://localhost:8888/index.php/grupo HTTP/1.1
 
 ###
+GET http://localhost:8888/index.php/grupo/1 HTTP/1.1
+
+###
 DELETE http://localhost:8888/index.php/grupo/1 HTTP/1.1
 
 
@@ -66,3 +69,8 @@ PUT http://localhost:8888/index.php/tarea HTTP/1.1
 
 ### DELETE
 DELETE http://localhost:8888/index.php/tarea/6 HTTP/1.1
+
+### GrupoServicios
+
+### POST
+POST http://localhost:8888/index.php/grupo-servicio HTTP/1.1

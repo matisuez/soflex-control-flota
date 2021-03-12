@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormGruposComponent } from './components/grupos/form-grupos/form-grupos.component';
 import { GrillaGruposComponent } from './components/grupos/grilla-grupos/grilla-grupos.component';
 import { HomeComponent } from './components/home/home.component';
+import { FormServiciosComponent } from './components/servicios/form-servicios/form-servicios.component';
+import { GrillaServiciosComponent } from './components/servicios/grilla-servicios/grilla-servicios.component';
 import { TareaComponent } from './components/tarea/tarea.component';
 
 const routes: Routes = [
@@ -12,6 +14,8 @@ const routes: Routes = [
   { path: 'tareas', component: TareaComponent },
   { path: 'grupos', component: GrillaGruposComponent },
   { path: 'grupos/form/:reason', component: FormGruposComponent },
+  { path: 'servicios', component: GrillaServiciosComponent },
+  { path: 'servicios/form/:reason', component: FormServiciosComponent },
 
   { path: '**', redirectTo: '/home' },
 ];
