@@ -1,6 +1,6 @@
 <?php 
 
-    include_once "models/servicioTarea.model.php";
+    include_once "models/servicio-tarea.model.php";
 
     $app->get('/servicio-tarea', function($request, $response, $args) {
         

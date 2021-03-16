@@ -54,8 +54,7 @@
                         setaFechaAlta,
                         setaBorrado
                     ) VALUES ( ?, ?, GETDATE(), 0);
-                    SELECT @@IDENTITY setaId, CONVERT(VARCHAR, GETDATE(), 126) setaFechaAlta;
-                ";
+                    SELECT @@IDENTITY setaId, CONVERT(VARCHAR, GETDATE(), 126) setaFechaAlta;";
             $stmt = SQL::query($db, $sql, [
                 DATA["setaServId"],
                 DATA["setaTareId"]
