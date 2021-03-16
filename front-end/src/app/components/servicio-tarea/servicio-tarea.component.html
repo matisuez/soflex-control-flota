@@ -1,0 +1,48 @@
+<div [hidden]="showForm">
+    <h1>Tareas</h1>
+    <table mat-table [dataSource]="dataSource" matSort style="overflow-x: auto; width: 100%;">
+        <mat-text-column name="setaServId" headerText="Id Servicio"></mat-text-column>
+        <mat-text-column name="setaTareId" headerText="Id Tarea"></mat-text-column>
+        <mat-text-column name="tareNombre" headerText="Nombre"></mat-text-column>
+
+        <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let servTare">
+                <button title="editar" mat-raised-button color="primary" style="margin-right: 10px;" (click)="edit(servTare)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button title="borrar" mat-raised-button color="primary" (click)="delete(servTare)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+        <tr mat-row *matRowDef="let row; columns: columns"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[4, 10, 20]" showFirstLastButtons></mat-paginator>
+    <button mat-raised-button id="add" (click)="add()" style="float:right;">Agregar Tarea</button>
+</div>
+<div *ngIf="showForm">
+    <h1>Nueva tarea</h1>
+    <form [formGroup]="form">
+        <div [hidden]="true">
+            <input type="text" formControlName="setaServId" [(ngModel)]="servId">
+        </div>
+        <div style="width: 100%;">
+            <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Tarea</mat-label>
+                <mat-select formControlName="setaTareId" required>
+                    <mat-option *ngFor="let tare of tasks" [value]="tare.tareId">
+                        {{tare.tareNombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <button type="button" mat-raised-button color="primary" (click)="save()"> Guardar</button>
+            &nbsp;
+            <button type="button" mat-raised-button (click)="cancel()">Cancelar</button>
+        </div>
+    </form>
+</div>
+

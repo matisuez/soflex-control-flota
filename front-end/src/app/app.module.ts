@@ -21,6 +21,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { ConfigService } from './core/config.service';
 import { HomeComponent } from './components/home/home.component';
@@ -30,8 +31,7 @@ import { GrillaGruposComponent } from './components/grupos/grilla-grupos/grilla-
 import { FormGruposComponent } from './components/grupos/form-grupos/form-grupos.component';
 import { GrillaServiciosComponent } from './components/servicios/grilla-servicios/grilla-servicios.component';
 import { FormServiciosComponent } from './components/servicios/form-servicios/form-servicios.component';
-import { GrillaServicioTareaComponent } from './components/servicio-tarea/grilla-servicio-tarea/grilla-servicio-tarea.component';
-import { FormServicioTareaComponent } from './components/servicio-tarea/form-servicio-tarea/form-servicio-tarea.component';
+import { ServicioTareaComponent } from './components/servicio-tarea/servicio-tarea.component';
 
 @NgModule({
   declarations: [
@@ -43,8 +43,7 @@ import { FormServicioTareaComponent } from './components/servicio-tarea/form-ser
     FormGruposComponent,
     GrillaServiciosComponent,
     FormServiciosComponent,
-    GrillaServicioTareaComponent,
-    FormServicioTareaComponent,
+    ServicioTareaComponent,
     
   ],
   imports: [
@@ -70,7 +69,8 @@ import { FormServicioTareaComponent } from './components/servicio-tarea/form-ser
     MatSelectModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatListModule
+    MatListModule,
+    MatGridListModule
   ],
   providers: [
     ConfigService,

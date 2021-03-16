@@ -130,8 +130,8 @@ PUT http://localhost:8888/index.php/servicio-tarea HTTP/1.1
 
 {
     "setaId": 10,
-    "setaServId": 2,
-    "setaTareId": 3
+    "setaServId": 4,
+    "setaTareId": 2
 }
 
 ### GET

@@ -9,7 +9,8 @@
             CONVERT(VARCHAR, setaFechaAlta, 126) setaFechaAlta,
             setaBorrado,
             tareNombre';
-        public $join = 'LEFT OUTER JOIN Tarea ON setaId = tareId';
+        public $join = 'LEFT OUTER JOIN Tarea ON setaTareId = tareId
+                        LEFT OUTER JOIN Servicio ON setaServId = servId';
 
         public function get($db) {
 
