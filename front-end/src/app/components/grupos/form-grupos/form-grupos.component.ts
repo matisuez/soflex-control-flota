@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Grupo } from 'src/app/models/grupo';
+import { GlobalService } from 'src/app/services/global.service';
+import { GrupoServicioService } from 'src/app/services/grupo-servicio.service';
 import { GrupoService } from 'src/app/services/grupo.service';
 
 @Component({
@@ -20,6 +22,8 @@ export class FormGruposComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private grupoService: GrupoService,
+    private globalService: GlobalService,
+    private groupServiceService: GrupoServicioService,
     private formBuilder: FormBuilder,
     private route: Router
   ) { }
@@ -55,6 +59,22 @@ export class FormGruposComponent implements OnInit {
     this.isLoaded = !this.isLoaded;
   }
 
+  refreshDetails(grupId: number) {
+    this.globalService.itemsGrupoServicio.forEach( igs => {
+      igs.grusGrupId = grupId;
+
+      if(igs.grusBorrado)
+        this.groupServiceService.delete(igs.grusId).subscribe();
+
+      if(igs.grusId < 0)
+        this.groupServiceService.post(igs).subscribe();
+
+      if(igs.grusId > 0)
+        this.groupServiceService.put(igs).subscribe();
+
+    });
+  }
+
   save() {
     if(this.reason == 'new')
       this.createGroup(); 
@@ -67,6 +87,7 @@ export class FormGruposComponent implements OnInit {
     this.group.grupDescripcion = this.form.value.grupDescripcion;
     this.grupoService.put(this.group).subscribe( group => {
       this.group = group;
+      this.refreshDetails(this.group.grupId);
     });
     this.route.navigate(['grupos']);
   }
@@ -75,6 +96,7 @@ export class FormGruposComponent implements OnInit {
     Object.assign(this.group, this.form.value);
     this.grupoService.post(this.group).subscribe( group => {
       this.group = group;
+      this.refreshDetails(this.group.grupId);
     });
     this.route.navigate(['grupos']);
   }

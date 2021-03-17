@@ -32,6 +32,7 @@ import { FormGruposComponent } from './components/grupos/form-grupos/form-grupos
 import { GrillaServiciosComponent } from './components/servicios/grilla-servicios/grilla-servicios.component';
 import { FormServiciosComponent } from './components/servicios/form-servicios/form-servicios.component';
 import { ServicioTareaComponent } from './components/servicio-tarea/servicio-tarea.component';
+import { GrupoServicioComponent } from './components/grupo-servicio/grupo-servicio.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { ServicioTareaComponent } from './components/servicio-tarea/servicio-tar
     GrillaServiciosComponent,
     FormServiciosComponent,
     ServicioTareaComponent,
+    GrupoServicioComponent,
     
   ],
   imports: [

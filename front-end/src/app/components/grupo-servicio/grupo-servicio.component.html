@@ -1,0 +1,67 @@
+<div [hidden]="showForm">
+    <h1>Servicios</h1>
+    <table mat-table [dataSource]="dataSource" matSort style="overflow-x:auto;width: 100%;">
+        <mat-text-column name="servNombre" headerText="Nombre"></mat-text-column>
+        <mat-text-column name="grusPeriodo" headerText="Periodo"></mat-text-column>
+        <mat-text-column name="grusKM" headerText="KM"></mat-text-column>
+        <mat-text-column name="grusFecha" headerText="Fecha"></mat-text-column>
+        <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let grupServ">
+                <button title="editar" mat-raised-button color="primary" style="margin-right: 10px;" (click)="edit(grupServ)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button title="borrar" mat-raised-button color="primary" (click)="delete(grupServ)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+        <tr mat-row *matRowDef="let row; columns: columns"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[4, 10, 20]" showFirstLastButtons></mat-paginator>
+    <button mat-raised-button id="add" (click)="add()" style="float:right;">Agregar</button>
+</div>
+<div *ngIf="showForm">
+    <h1>Nuevo servicio</h1>
+    <form [formGroup]="form">
+        <div [hidden]="true">
+            <input type="text" formControlName="grusGrupId" [(ngModel)]="grupId">
+        </div>
+        <div style="width: 100%;">
+            <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Servicio</mat-label>
+                <mat-select formControlName="grusServId" required>
+                    <mat-option *ngFor="let serv of services" [value]="serv.servId">
+                        {{serv.servNombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Periodo</mat-label>
+                <input matInput formControlName="grusPeriodo" required>
+                <mat-error>El campo es obligatorio.</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>KM</mat-label>
+                <input matInput formControlName="grusKM" required>
+                <mat-error>El campo es obligatorio.</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Fecha</mat-label>
+                <input matInput formControlName="grusFecha" required>
+                <mat-error>El campo es obligatorio.</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <button type="button" mat-raised-button color="primary" (click)="save()">Guardar</button>
+            <button type="button" mat-raised-button (click)="cancel()">Cancelar</button>
+        </div>
+    </form>
+</div>
